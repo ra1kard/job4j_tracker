@@ -18,6 +18,10 @@ public class Computer {
         this.cpu = cpu;
     }
 
+    public Computer(int ssd, String cpu) {
+        this.cpu = cpu;
+    }
+
     public void printInfo() {
         System.out.println("Много мониторов: " + multiMonitor);
         System.out.println("SSD: " + ssd + " GB");
