@@ -33,10 +33,8 @@ public class Calculator {
         int result3 = minus(6);
         Calculator calculator = new Calculator();
         int rsl = calculator.multiply(5);
-        Calculator calculator2 = new Calculator();
-        int rsl2 = calculator2.divide(10);
-        Calculator calculator3 = new Calculator();
-        int rsl3 = calculator3.sumAllOperation(3);
+        int rsl2 = calculator.divide(10);
+        int rsl3 = calculator.sumAllOperation(3);
     }
 
 }
