@@ -9,7 +9,6 @@ public class College {
         student.setFio("Stanislav Kufarev");
         student.setGroup("102");
         student.setEntering(new Date());
-
         System.out.println(student.getFio() + " in the group: "
                 + student.getGroup() + " since " + student.getEntering());
     }
