@@ -4,6 +4,7 @@ public class CommitTest {
 
     public static void main(String[] args) {
         System.out.println("Это просто Стас, ла-ла-ла!");
+        System.out.println("test");
     }
 
 }
