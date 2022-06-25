@@ -16,7 +16,7 @@ public class TrackerTest {
         assertThat(result.getName(), is(item.getName()));
     }
 
-    @Test
+    /*@Test
     public void whenTestFindAll() {
         Tracker tracker = new Tracker();
         Item first = new Item("First");
@@ -27,7 +27,7 @@ public class TrackerTest {
         assertThat(result.getName(), is(first.getName()));
     }
 
-    /*@Test
+    @Test
     public void whenTestFindByNameCheckArrayLength() {
         Tracker tracker = new Tracker();
         Item first = new Item("First");
