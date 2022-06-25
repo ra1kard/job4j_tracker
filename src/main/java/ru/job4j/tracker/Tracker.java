@@ -3,7 +3,7 @@ package ru.job4j.tracker;
 import java.util.Arrays;
 
 public class Tracker {
-    private final Item[] items = new Item[100];
+    private final Item[] items = new Item[10];
     private int ids = 1;
     private int size = 0;
 
@@ -60,17 +60,45 @@ public class Tracker {
      * ---
      * проверяет в цикле все элементы массива items, сравнивая id с аргументом int id
      * и возвращает найденный Item. Если Item не найден - возвращает null.
-     * */
+     * ---
+     * Находим индекс
+     * /* Если индекс найден возвращаем item, иначе null
+     */
     public Item findById(int id) {
-        Item rsl = null;
+        int index = indexOf(id);
+        return index != -1 ? items[index] : null;
+    }
+
+    private int indexOf(int id) {
+        int rsl = -1;
         for (int index = 0; index < size; index++) {
-            Item item = items[index];
-            if (item.getId() == id) {
-                rsl = item;
+            if (items[index].getId() == id) {
+                rsl = index;
                 break;
             }
         }
         return rsl;
+    }
+
+    public boolean replace(int id, Item item) {
+        boolean rsl = false;
+        int value = indexOf(id);
+        if (value != -1) {
+            items[value].setName(item.getName());
+            rsl = true;
+        }
+        return rsl;
+    }
+
+    public static void main(String[] args) {
+        Tracker tracker = new Tracker();
+        Item bug = new Item();
+        bug.setName("Bug");
+        tracker.add(bug);
+        int id = bug.getId();
+        Item bugWithDesc = new Item();
+        bugWithDesc.setName("Bug with description");
+        tracker.replace(id, bugWithDesc);
     }
 
 }
