@@ -90,15 +90,14 @@ public class Tracker {
         return rsl;
     }
 
-    public static void main(String[] args) {
-        Tracker tracker = new Tracker();
-        Item bug = new Item();
-        bug.setName("Bug");
-        tracker.add(bug);
-        int id = bug.getId();
-        Item bugWithDesc = new Item();
-        bugWithDesc.setName("Bug with description");
-        tracker.replace(id, bugWithDesc);
+    public boolean delete(int id) {
+        int start = indexOf(id) + 1;
+        int distPos = indexOf(id);
+        int length = size - indexOf(id) - 1;
+        System.arraycopy(items, start, items, distPos, length);
+        items[size - 1] = null;
+        size--;
+        return true;
     }
 
 }

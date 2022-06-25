@@ -4,21 +4,17 @@ import java.util.Arrays;
 
 public class DropArray {
 
+    /**
+     * src:     массив из которого копируем
+     * srcPos:  с какой позиции начинаем копировать
+     * dest:    в какой массив скопирую
+     * destPos: с какого элемента мне начать вставлять
+     * length:  какой длины должен быть мой копированный элемент
+     * */
     public static void main(String[] args) {
-        String[] names = {"Petr", null, "Ivan", "Stepan", null};
-        String[] rsl = new String[names.length];
-        int size = 0;
-        for (int index = 0; index < names.length; index++) {
-            String name = names[index];
-            if (name != null) {
-                rsl[size] = name;
-                size++;
-            }
-        }
-        rsl = Arrays.copyOf(rsl, size);
-        for (int index = 0; index < rsl.length; index++) {
-            System.out.println(rsl[index]);
-        }
+        String[] names = {"Petr", null, "Ivan", "Stepan", "Fedor"};
+        System.arraycopy(names, 2, names, 1, 3);
+        System.out.println(Arrays.toString(names));
     }
 
 }
