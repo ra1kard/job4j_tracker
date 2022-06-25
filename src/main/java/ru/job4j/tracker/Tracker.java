@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import java.util.Arrays;
+
 public class Tracker {
     private final Item[] items = new Item[100];
     private int ids = 1;
@@ -19,10 +21,16 @@ public class Tracker {
      * возвращает копию массива items без null элементов (без пустых ячеек).
      * */
     public Item[] findAll() {
-        Item[] rsl = new Item[items.length];
-        for (int i = 0; i < rsl.length; i++) {
-            System.out.println(rsl[i]);
+        Item[] rsl = new Item[size];
+        int count = 0;
+        for (int i = 0; i < items.length; i++) {
+            Item valueItem = items[i];
+            if (valueItem != null) {
+                rsl[count] = valueItem;
+                count++;
+            }
         }
+        rsl = Arrays.copyOf(rsl, size);
         return rsl;
     }
 
@@ -34,9 +42,18 @@ public class Tracker {
      * Элементы, у которых совпадает name, копирует в результирующий массив и
      * возвращает его. Алгоритм этого метода аналогичен методу findAll.
      * */
-    /*public Item[] findByName(String key) {
-
-    }*/
+    public Item[] findByName(String key) {
+        Item[] rsl = new Item[size];
+        int count = 0;
+        for (int i = 0; i < items.length; i++) {
+            if (items[i] != null && items[i].getName().equals(key)) {
+                rsl[count] = items[i];
+                count++;
+            }
+        }
+        rsl = Arrays.copyOf(rsl, count);
+        return rsl;
+    }
 
     /**
      * получение заявки по id
@@ -54,15 +71,6 @@ public class Tracker {
             }
         }
         return rsl;
-    }
-
-    public static void main(String[] args) {
-        Tracker tracker = new Tracker();
-        Item first = new Item("First");
-        Item second = new Item("Second");
-        tracker.add(first);
-        tracker.add(second);
-        Item result = tracker.findAll()[0];
     }
 
 }

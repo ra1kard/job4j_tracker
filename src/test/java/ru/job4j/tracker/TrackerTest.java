@@ -16,7 +16,7 @@ public class TrackerTest {
         assertThat(result.getName(), is(item.getName()));
     }
 
-    /*@Test
+    @Test
     public void whenTestFindAll() {
         Tracker tracker = new Tracker();
         Item first = new Item("First");
@@ -53,6 +53,6 @@ public class TrackerTest {
         tracker.add(new Item("First"));
         Item[] result = tracker.findByName(second.getName());
         assertThat(result[1].getName(), is(second.getName()));
-    }*/
+    }
 
 }

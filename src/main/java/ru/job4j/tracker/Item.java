@@ -9,9 +9,9 @@ import java.time.LocalDateTime;
  * Поле created содержит дату создания заявления.
  * */
 public class Item {
-    private int id;
-    private String name;
-    private LocalDateTime created = LocalDateTime.now();
+    private int id;             // уникальный номер заявления
+    private String name;        // содержит название заявления
+    private LocalDateTime created = LocalDateTime.now();    //содержит дату создания заявления.
 
     public Item() {
     }
