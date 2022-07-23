@@ -8,7 +8,8 @@ public class Tracker {
     private int size = 0;
 
     /**
-     * добавление заявок:
+     * добавление заявок (items - массив заявок, item - заявка):
+     * метод public Item add(Item item) добавляет заявку, переданную в аргументах в массив заявок items.
      */
     public Item add(Item item) {
         item.setId(ids++);
