@@ -74,17 +74,16 @@ public class Tracker {
     }
 
     /**
-     * замена заявки
+     * изменение заявки
      */
     public boolean replace(int id, Item item) {
         int index = indexOf(id);
-        boolean rsl = false;
-        if (index != -1) {
+        boolean result = index != -1;
+        if (result) {
             item.setId(id);
             items[index] = item;
-            rsl = true;
         }
-        return rsl;
+        return result;
     }
 
     /**
