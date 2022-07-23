@@ -9,7 +9,7 @@ public class Tracker {
 
     /**
      * добавление заявок:
-     * */
+     */
     public Item add(Item item) {
         item.setId(ids++);
         items[size++] = item;
@@ -19,7 +19,7 @@ public class Tracker {
     /**
      * вывод всех заявок / получение списка всех заявок:
      * возвращает копию массива items без null элементов (без пустых ячеек).
-     * */
+     */
     public Item[] findAll() {
         return Arrays.copyOf(items, size);
     }
@@ -31,7 +31,7 @@ public class Tracker {
      * (используя метод getName класса Item) с аргументом метода String key.
      * Элементы, у которых совпадает name, копирует в результирующий массив и
      * возвращает его. Алгоритм этого метода аналогичен методу findAll.
-     * */
+     */
     public Item[] findByName(String key) {
         Item[] rsl = new Item[size];
         int count = 0;
@@ -60,7 +60,7 @@ public class Tracker {
 
     /**
      * получение индекса
-     * */
+     */
     private int indexOf(int id) {
         int rsl = -1;
         for (int index = 0; index < size; index++) {
@@ -74,7 +74,7 @@ public class Tracker {
 
     /**
      * замена заявки
-     * */
+     */
     public boolean replace(int id, Item item) {
         int index = indexOf(id);
         boolean rsl = false;
@@ -88,7 +88,7 @@ public class Tracker {
 
     /**
      * удаление заявки
-     * */
+     */
     public boolean delete(int id) {
         int index = indexOf(id);
         boolean rsl = index != -1;
