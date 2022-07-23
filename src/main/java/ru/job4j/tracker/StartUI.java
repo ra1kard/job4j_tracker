@@ -23,6 +23,13 @@ public class StartUI {
 
     /**
      * выводит на экран меню доступных пользовательских действий;
+     * 0. Add new Item          1. Добавление заявки;       add
+     * 1. Show all items        2. Вывод всех заявок;       findAll
+     * 2. Edit item             3. Изменение заявки;        replace
+     * 3. Delete item           4. Удаление заявки;         delete
+     * 4. Find item by id       5. Вывод заявки по id;      findById
+     * 5. Find items by name    6. Вывод заявок по имени.   findByName
+     * 6. Exit Program
      */
     private void showMenu() {
         String[] menu = {
@@ -38,6 +45,7 @@ public class StartUI {
 
     /**
      * Scanner позволит получать данные с консоли от пользователя, Tracker будет служить хранилищем заявок.
+     * просто запускает наше приложение
      */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

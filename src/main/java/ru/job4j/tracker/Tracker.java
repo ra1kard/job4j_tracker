@@ -58,6 +58,9 @@ public class Tracker {
         return index != -1 ? items[index] : null;
     }
 
+    /**
+     * получение индекса
+     * */
     private int indexOf(int id) {
         int rsl = -1;
         for (int index = 0; index < size; index++) {
@@ -69,6 +72,9 @@ public class Tracker {
         return rsl;
     }
 
+    /**
+     * замена заявки
+     * */
     public boolean replace(int id, Item item) {
         int index = indexOf(id);
         boolean rsl = false;
@@ -80,6 +86,9 @@ public class Tracker {
         return rsl;
     }
 
+    /**
+     * удаление заявки
+     * */
     public boolean delete(int id) {
         int index = indexOf(id);
         boolean rsl = index != -1;
