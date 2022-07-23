@@ -8,7 +8,7 @@ import java.time.format.DateTimeFormatter;
  * Поле id - это уникальный номер заявления.
  * Поле name содержит название заявления.
  * Поле created содержит дату создания заявления.
- * */
+ */
 public class Item {
     private int id;
     private String name;

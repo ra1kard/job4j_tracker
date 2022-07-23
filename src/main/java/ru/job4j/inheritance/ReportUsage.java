@@ -4,7 +4,7 @@ public class ReportUsage {
 
     /**
      * try change: TextReport report = new TextReport();
-     * */
+     */
     public static void main(String[] args) {
         HtmlReport report = new HtmlReport();
         String text = report.generate("Report's name", "Report's body");

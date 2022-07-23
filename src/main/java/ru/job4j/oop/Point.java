@@ -5,7 +5,7 @@ import static java.lang.Math.pow;
 
 /**
  * Этот класс описывает точку в системе координат.
- * */
+ */
 public class Point {
     private int x;
     private int y;
