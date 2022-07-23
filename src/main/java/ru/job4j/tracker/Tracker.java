@@ -34,15 +34,16 @@ public class Tracker {
      * возвращает его. Алгоритм этого метода аналогичен методу findAll.
      */
     public Item[] findByName(String key) {
-        Item[] rsl = new Item[size];
+        Item[] result = new Item[size];
         int count = 0;
         for (int i = 0; i < size; i++) {
-            if (items[i].getName().equals(key)) {
-                rsl[count] = items[i];
+            Item item = items[i];
+            if (item.getName().equals(key)) {
+                result[count] = item;
                 count++;
             }
         }
-        return Arrays.copyOf(rsl, count);
+        return Arrays.copyOf(result, count);
     }
 
     /**
