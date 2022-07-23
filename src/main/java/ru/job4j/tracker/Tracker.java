@@ -60,17 +60,17 @@ public class Tracker {
     }
 
     /**
-     * получение индекса
+     * получение индекса - вспомогательный метод
      */
     private int indexOf(int id) {
-        int rsl = -1;
-        for (int index = 0; index < size; index++) {
-            if (items[index].getId() == id) {
-                rsl = index;
+        int result = -1;
+        for (int i = 0; i < size; i++) {
+            if (items[i].getId() == id) {
+                result = i;
                 break;
             }
         }
-        return rsl;
+        return result;
     }
 
     /**
