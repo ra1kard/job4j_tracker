@@ -19,7 +19,7 @@ public class HierarchyUsage {
         * Car cb = (Car) bicycle;
         * */
         Object bicycle = new Bicycle();
-        Bicycle cb = (Bicycle) bicycle; // код завершится с ошибкой приведения типов ClassCastException
+        Bicycle cb = (Bicycle) bicycle;
     }
 
 }
