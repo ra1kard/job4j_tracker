@@ -9,7 +9,7 @@ import java.time.format.DateTimeFormatter;
  * Поле name содержит название заявления.
  * Поле created содержит дату создания заявления.
  */
-public class Item {
+public class  Item {
     private int id;
     private String name;
     private LocalDateTime created = LocalDateTime.now();
