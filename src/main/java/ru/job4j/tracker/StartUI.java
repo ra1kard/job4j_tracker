@@ -120,14 +120,9 @@ public class StartUI {
         }
     }
 
-    /**
-     * Scanner позволит получать данные с консоли от пользователя, Tracker будет служить хранилищем заявок.
-     * просто запускает наше приложение
-     */
     public static void main(String[] args) {
         Input input = new ConsoleInput();
         Tracker tracker = new Tracker();
-        /*Вызов не статического метода. Необходимо обратиться через объект. */
         new StartUI().init(input, tracker);
     }
 
