@@ -8,12 +8,6 @@ public class JdbcConfig {
         }
     }
 
-    /**
-     * еще вариант:
-     * public static void main(String[] args) throws UserInputException {
-     * load(jdbc://localhost:8080);
-     * }
-     */
     public static void main(String[] args) {
         try {
             load("jdbc://localhost:8080");
