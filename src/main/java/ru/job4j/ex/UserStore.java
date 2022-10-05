@@ -8,13 +8,10 @@ public class UserStore {
      *    что пользователя не найдено.
      */
     public static User findUser(User[] users, String login) throws UserNotFoundException {
-        User user = null;
-        for (int i = 0; i < users.length; i++) {
-            if (users[i].getUsername().equals(login)) {
-                System.out.println("User is on the list");
-                user = users[i];
-                return user;
-            }
+        for (User user : users) {
+           if (user.getUsername().equals(login)) {
+               return user;
+           }
         }
         throw new UserNotFoundException("User not found");
     }
@@ -34,7 +31,7 @@ public class UserStore {
         if (!user.isValid() || user.getUsername().length() < 3) {
             throw new UserInvalidException("User is not valid");
         }
-        return false;
+        return true;
     }
 
     /**
@@ -44,15 +41,21 @@ public class UserStore {
         try {
             User[] users = {
                     new User("Petr Arsentev", true),
-                    new User("Stanislav Kufarev", false),
+                    new User("Stanislav Kufarev", true),
                     new User("Boris Korolev", true)
             };
             User user = findUser(users, "Stanislav Kufarev");
             if (validate(user)) {
                 System.out.println("This user has an access");
             }
+        } catch (UserInvalidException e) {
+            e.printStackTrace();
+        } catch (UserNotFoundException e) {
+            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
+        } catch (Throwable th) {
+            th.printStackTrace();
         }
     }
 
