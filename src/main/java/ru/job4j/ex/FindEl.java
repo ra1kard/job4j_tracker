@@ -43,19 +43,21 @@ public class FindEl {
             if (indexOf(values, key) != -1) {
                 sent(key, abuses);
             }
+        } catch (ElementAbuseException en) {
+            en.printStackTrace();
+        } catch (ElementNotFoundException en) {
+            en.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
+        } catch (Throwable th) {
+            th.printStackTrace();
         }
     }
 
     public static void main(String[] args) {
-        try {
-            String[] names = {"Petr", "Ivan", "Evil", "Vasiliy"};
-            String[] abuses = {"Radish", "Evil"};
-            process(names, "Evil", abuses);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        String[] names = {"Petr", "Ivan", "Evil", "Vasiliy"};
+        String[] abuses = {"Radish", "Evil"};
+        process(names, "Evil", abuses);
     }
 
 }
