@@ -10,54 +10,56 @@ public class PasswordValidator {
         int valueUpperCase = 0;
         int valueLowerCase = 0;
         int valueHasNumber = 0;
-        int valueSpecific = 0;
-        String conditions = """
-                1) Длина пароля находится в диапазоне [8, 32];
-                2) Пароль содержит хотя бы один символ в верхнем регистре;
-                3) Пароль содержит хотя бы один символ в нижнем регистре;
-                4) Пароль содержит хотя бы одну цифру;
-                5) Пароль содержит хотя бы один спец. символ (не цифра и не буква);
-                6) Пароль не содержит подстрок без учета регистра: qwerty, 12345, password, admin, user. Без учета регистра, значит что, например, ни qwerty ни QWERTY ни qwErty и т.п. не должно быть в составе пароля.""";
+        int valueSpecialSymbol = 0;
         if (password == null) {
             throw new IllegalArgumentException("Password cannot be null");
         }
-        if (password.length() < 8 || password.length() > 32) {
-            return conditions;
-        }
         char[] ch = password.toCharArray();
         for (char value : ch) {
+            if (valueUpperCase > 0 && valueLowerCase > 0 && valueHasNumber > 0 && valueSpecialSymbol > 0) {
+                break;
+            }
             if (Character.isUpperCase(value)) {
                 valueUpperCase++;
-                continue;
             }
             if (Character.isLowerCase(value)) {
                 valueLowerCase++;
-                continue;
             }
             if (Character.isDigit(value)) {
                 valueHasNumber++;
-                continue;
             }
-            if (value >= '!' && value <= '/') {
-                valueSpecific++;
-                continue;
+            if ((value >= '!' && value <= '/') || (value >= ':' && value <= '@') || (value >= '[' && value <= '`')
+                    || (value >= '{' && value <= '~')) {
+                valueSpecialSymbol++;
             }
         }
-        if (password.toLowerCase().contains("qwerty")
-                || password.toLowerCase().contains("12345")
-                || password.toLowerCase().contains("password")
-                || password.toLowerCase().contains("admin")
-                || password.toLowerCase().contains("user")) {
-            return conditions;
+        if (password.length() < 8 || password.length() > 32) {
+            throw new IllegalArgumentException("Длина пароля находится в диапазоне [8, 32]");
         }
-        if (valueUpperCase == 0 || valueLowerCase == 0 || valueHasNumber == 0 || valueSpecific == 0) {
-            return conditions;
+        if (valueUpperCase == 0) {
+            throw new IllegalArgumentException("Пароль содержит хотя бы один символ в верхнем регистре");
+        }
+        if (valueLowerCase == 0) {
+            throw new IllegalArgumentException("Пароль содержит хотя бы один символ в нижнем регистре");
+        }
+        if (valueHasNumber == 0) {
+            throw new IllegalArgumentException("Пароль содержит хотя бы одну цифру");
+        }
+        if (valueSpecialSymbol == 0) {
+            throw new IllegalArgumentException("Пароль содержит хотя бы один спец. символ (не цифра и не буква)");
+        }
+        String[] invalidWords = {"qwerty", "12345", "password", "admin", "user"};
+        for (String invalidWord : invalidWords) {
+            if (password.toLowerCase().contains(invalidWord)) {
+                throw new IllegalArgumentException("Пароль не содержит подстрок без учета регистра: qwerty, 12345, "
+                        + "password, admin, user.");
+            }
         }
         return password;
     }
 
     public static void main(String[] args) {
-        String value = "раздват";
+        String value = "USRр@зДва345";
         String rsl = validate(value);
         System.out.println(rsl);
     }
