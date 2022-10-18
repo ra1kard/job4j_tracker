@@ -30,8 +30,10 @@ public final class Log4File {
         messages[index++] = message;
     }
 
+    /**
+     * TODO Сохраняем записи из массива messages в файл.
+     */
     public void save() {
-        //TODO Сохраняем записи из массива messages в файл.
     }
 
 }
