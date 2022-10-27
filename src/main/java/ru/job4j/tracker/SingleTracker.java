@@ -1,5 +1,8 @@
 package ru.job4j.tracker;
 
+/**
+ * Этот класс должен реализовывать все методы от класса Tracker.
+ */
 public final class SingleTracker {
     private Tracker tracker = new Tracker();
     private static SingleTracker instance = null;
@@ -18,8 +21,24 @@ public final class SingleTracker {
         return tracker.add(item);
     }
 
+    public Item[] findAll() {
+        return tracker.findAll();
+    }
+
+    public Item[] findByName(String key) {
+        return tracker.findByName(key);
+    }
+
     public Item findById(int id) {
-        return null;
+        return tracker.findById(id);
+    }
+
+    public boolean replace(int id, Item item) {
+        return tracker.replace(id, item);
+    }
+
+    public boolean delete(int id) {
+        return tracker.delete(id);
     }
 
 }
