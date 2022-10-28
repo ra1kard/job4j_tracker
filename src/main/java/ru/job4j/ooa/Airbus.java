@@ -3,7 +3,7 @@ package ru.job4j.ooa;
 import java.util.Objects;
 
 public final class Airbus extends Aircraft {
-    private static int COUNT_ENGINE = 2;
+    private static final int COUNT_ENGINE = 2;
     private String name;
 
     public Airbus(String name) {
@@ -30,8 +30,8 @@ public final class Airbus extends Aircraft {
      * для всех остальных моделей - используем в качестве значения константу COUNT_ENGINE.
      */
     public void printCountEngine() {
-        COUNT_ENGINE = Objects.equals(name, "A380") ? 4 : 2;
-        System.out.println("Количество двигателей равно: " + COUNT_ENGINE);
+        int count = Objects.equals(name, "A380") ? 4 : COUNT_ENGINE;
+        System.out.println("Количество двигателей равно: " + count);
     }
 
     @Override
